@@ -62,6 +62,22 @@ public class Chapter extends Movie {
 		return chapters;
 	}
 
+	@Override
+	public void view() {
+		super.view();
+
+		ArrayList<Chapter> chapters = getSerie().getChapters();
+		int chaptersViewedCounter = 0;
+
+		for (Chapter chapter:chapters) {
+			if(chapter.getIsViewed()){
+				chaptersViewedCounter++;
+			}
+		}
+		if(chaptersViewedCounter==chapters.size()){
+			getSerie().setViewed(true);
+		}
+	}
 }
 
 
